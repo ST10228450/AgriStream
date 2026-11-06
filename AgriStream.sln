@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriStream", "AgriStream\AgriStream.csproj", "{465B62EF-9AEF-447F-BFA6-D3B134399183}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{465B62EF-9AEF-447F-BFA6-D3B134399183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465B62EF-9AEF-447F-BFA6-D3B134399183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465B62EF-9AEF-447F-BFA6-D3B134399183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465B62EF-9AEF-447F-BFA6-D3B134399183}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {775150F4-F67F-4E53-8887-81B22C0804A1}
+	EndGlobalSection
+EndGlobal
