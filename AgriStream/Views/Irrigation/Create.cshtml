@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Irrigation Control";
+}
+
+<div class="container-fluid">
+    <h2>Irrigation Control</h2>
+    <p>Submit an irrigation request for a registered field.</p>
+
+    <div class="card shadow-sm p-4">
+        <form asp-controller="Irrigation"
+              asp-action="Create"
+              method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Farm ID</label>
+                <input type="number"
+                       name="FarmId"
+                       class="form-control"
+                       min="1"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Field ID</label>
+                <input type="number"
+                       name="FieldId"
+                       class="form-control"
+                       min="1"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Irrigation Duration (Minutes)</label>
+                <input type="number"
+                       name="DurationMinutes"
+                       class="form-control"
+                       min="1"
+                       max="120"
+                       required />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Submit Irrigation Request
+            </button>
+        </form>
+    </div>
+</div>

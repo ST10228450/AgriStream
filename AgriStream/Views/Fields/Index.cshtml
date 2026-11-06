@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Field Monitoring";
+}
+
+<div class="container-fluid">
+
+    <div class="section-heading">
+        <div>
+            <h2>Field Monitoring</h2>
+            <p>Monitor your agricultural fields and conditions.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>View Farm Telemetry</h3>
+
+        <p class="panel-subtitle">
+            Enter a farm ID to retrieve its latest sensor readings.
+        </p>
+
+        <form asp-controller="Fields"
+              asp-action="Details"
+              method="get">
+
+            <div class="mb-3">
+                <label class="form-label">Farm ID</label>
+
+                <input type="text"
+                       name="farmId"
+                       class="form-control"
+                       placeholder="Enter farm ID"
+                       required />
+            </div>
+
+            <button type="submit" class="btn-primary">
+                View Field Details
+            </button>
+        </form>
+    </div>
+
+    <div class="panel mt-4">
+        <h3>Field Management</h3>
+
+        <p>
+            View field information and monitor agricultural
+            conditions using your registered farm records.
+        </p>
+
+        <a asp-controller="Farms"
+           asp-action="Index"
+           class="btn-secondary">
+            Back to My Farms
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Farm Telemetry";
+}
+
+<div class="container-fluid">
+    <h2>Farm Telemetry</h2>
+    <p>Monitor real-time agricultural sensor readings.</p>
+
+    <div class="card shadow-sm p-4">
+        <h5>Sensor Monitoring</h5>
+
+        <div class="row g-3 mt-2">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h6>Soil Moisture</h6>
+                    <h3>-- %</h3>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h6>Temperature</h6>
+                    <h3>-- °C</h3>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h6>Humidity</h6>
+                    <h3>-- %</h3>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-muted mt-3">
+            Telemetry readings will be loaded from Azure Table Storage.
+        </p>
+    </div>
+</div>

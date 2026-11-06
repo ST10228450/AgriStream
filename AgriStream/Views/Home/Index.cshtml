@@ -1,8 +1,261 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Welcome Banner -->
+<section class="welcome-banner">
+    <div>
+        <h1>Welcome to AgriStream 🌱</h1>
+        <p>
+            Monitor your farms, track field conditions and manage
+            agricultural operations from one place.
+        </p>
+    </div>
+
+    <div class="banner-tag">
+        Agricultural Intelligence Platform
+    </div>
+</section>
+
+<!-- Statistics -->
+<div class="section-heading">
+    <div>
+        <h2>Farm Overview</h2>
+        <p>Overview of your agricultural operations</p>
+    </div>
+</div>
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="stat-icon">♧</div>
+        <span class="stat-label">Registered Farms</span>
+        <h2>12</h2>
+        <span class="stat-note">Farm records</span>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">▦</div>
+        <span class="stat-label">Monitored Fields</span>
+        <h2>28</h2>
+        <span class="stat-note">Fields monitored</span>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">⌁</div>
+        <span class="stat-label">Active Sensors</span>
+        <h2>45</h2>
+        <span class="stat-note">Sensor devices</span>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">◉</div>
+        <span class="stat-label">Irrigation Status</span>
+        <h2>Active</h2>
+        <span class="stat-note">System operational</span>
+    </div>
+
+</div>
+
+<!-- Telemetry -->
+<div class="section-heading">
+    <div>
+        <h2>Latest Field Telemetry</h2>
+        <p>Sample readings for dashboard layout</p>
+    </div>
+
+    <a asp-controller="Fields"
+       asp-action="Index"
+       class="btn-secondary">
+        View Fields
+    </a>
+</div>
+
+<div class="panel">
+    <div class="telemetry-list">
+
+        <div class="telemetry-item">
+            <span>Soil Moisture</span>
+            <h2>45.6%</h2>
+            <small>Normal range</small>
+        </div>
+
+        <div class="telemetry-item">
+            <span>Temperature</span>
+            <h2>28.5°C</h2>
+            <small>Current reading</small>
+        </div>
+
+        <div class="telemetry-item">
+            <span>Humidity</span>
+            <h2>62%</h2>
+            <small>Current reading</small>
+        </div>
+
+    </div>
+</div>
+
+<!-- Analytics -->
+<div class="content-grid">
+
+    <div class="panel">
+        <h3>Soil Moisture Analytics</h3>
+        <p class="panel-subtitle">
+            Illustrative weekly moisture readings
+        </p>
+
+        <div class="chart">
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:45%"></div>
+                <span>Mon</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:60%"></div>
+                <span>Tue</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:55%"></div>
+                <span>Wed</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:75%"></div>
+                <span>Thu</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:65%"></div>
+                <span>Fri</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:85%"></div>
+                <span>Sat</span>
+            </div>
+
+            <div class="chart-column">
+                <div class="chart-bar" style="height:70%"></div>
+                <span>Sun</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Field Alerts</h3>
+        <p class="panel-subtitle">
+            Illustrative monitoring notifications
+        </p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Alert</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Field A</td>
+                    <td>
+                        <span class="status-badge">
+                            Normal
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Field B</td>
+                    <td>
+                        <span class="status-badge status-warning">
+                            Low Moisture
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Field C</td>
+                    <td>
+                        <span class="status-badge status-danger">
+                            Critical
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Quick Actions -->
+<div class="section-heading">
+    <div>
+        <h2>Quick Actions</h2>
+        <p>Access frequently used functions</p>
+    </div>
+</div>
+
+<div class="stats-grid">
+
+    <div class="panel">
+        <div class="stat-icon">▧</div>
+        <h3>Drone Images</h3>
+        <p class="panel-subtitle">
+            Upload and manage agricultural images.
+        </p>
+
+        <a asp-controller="DroneImages"
+           asp-action="Upload"
+           class="btn-primary">
+            Upload Image
+        </a>
+    </div>
+
+    <div class="panel">
+        <div class="stat-icon">◉</div>
+        <h3>Irrigation Control</h3>
+        <p class="panel-subtitle">
+            Manage irrigation commands.
+        </p>
+
+        <a asp-controller="Irrigation"
+           asp-action="Index"
+           class="btn-primary">
+            Manage Irrigation
+        </a>
+    </div>
+
+    <div class="panel">
+        <div class="stat-icon">♧</div>
+        <h3>Farm Management</h3>
+        <p class="panel-subtitle">
+            View and manage registered farms.
+        </p>
+
+        <a asp-controller="Farms"
+           asp-action="Index"
+           class="btn-primary">
+            View Farms
+        </a>
+    </div>
+
+    <div class="panel">
+        <div class="stat-icon">⌁</div>
+        <h3>Field Monitoring</h3>
+        <p class="panel-subtitle">
+            Monitor your agricultural fields.
+        </p>
+
+        <a asp-controller="Fields"
+           asp-action="Index"
+           class="btn-primary">
+            Monitor Fields
+        </a>
+    </div>
+
 </div>

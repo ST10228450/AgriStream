@@ -1,49 +1,152 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AgriStream</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AgriStream.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/site.css"
+          asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AgriStream</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">A</div>
+                <div>
+                    <h2>AgriStream</h2>
+                    <span>Agricultural Intelligence</span>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+
+            <div class="sidebar-section">
+                <span class="section-label">MAIN MENU</span>
+
+                <a asp-controller="Home" asp-action="Index"
+                   class="nav-link">
+                    <span>⌂</span> Dashboard
+                </a>
+
+                <a asp-controller="Farms" asp-action="Index"
+                   class="nav-link">
+                    <span>♧</span> My Farms
+                </a>
+
+                <a asp-controller="Fields" asp-action="Index"
+                   class="nav-link">
+                    <span>▦</span> Field Monitoring
+                </a>
+
+                <a asp-controller="DroneImages" asp-action="Index"
+                   class="nav-link">
+                    <span>▧</span> Drone Images
+                </a>
+
+                <a asp-controller="Irrigation" asp-action="Index"
+                   class="nav-link">
+                    <span>◉</span> Irrigation
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="section-label">MANAGEMENT</span>
+
+                @if (User.IsInRole("Agronomist") ||
+                     User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Telemetry" asp-action="Index"
+                       class="nav-link">
+                        <span>⌁</span> Telemetry Data
+                    </a>
+                }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Users" asp-action="Index"
+                       class="nav-link">
+                        <span>♙</span> User Management
+                    </a>
+                }
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="user-profile">
+                    <div class="avatar">
+                        @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")
+                    </div>
+
+                    <div class="user-info">
+                        <strong>@(User.Identity?.Name ?? "Guest")</strong>
+                        <span>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @:Administrator
+                            }
+                            else if (User.IsInRole("Agronomist"))
+                            {
+                                @:Agronomist
+                            }
+                            else if (User.IsInRole("Farmer"))
+                            {
+                                @:Farmer
+                            }
+                            else
+                            {
+                                @:Guest
+                            }
+                        </span>
+                    </div>
+                </div>
+
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <form asp-controller="Account"
+                          asp-action="Logout"
+                          method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="logout-button">
+                            ↪ Sign Out
+                        </button>
+                    </form>
+                }
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h3>@ViewData["Title"]</h3>
+                    <p>Welcome to your agricultural management platform.</p>
+                </div>
+
+                <div class="topbar-right">
+                    <span class="system-status">
+                        <span class="status-dot"></span>
+                        System Online
+                    </span>
+                    <div class="topbar-avatar">AS</div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                @RenderBody()
+            </div>
+
+            <footer class="footer">
+                © @DateTime.Now.Year AgriStream. Agricultural Intelligence Platform.
+            </footer>
+
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - AgriStream - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

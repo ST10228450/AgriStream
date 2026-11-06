@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Drone Images";
+}
+
+<div class="container-fluid">
+
+    <div class="section-heading">
+        <div>
+            <h2>Drone Images</h2>
+            <p>Manage agricultural drone imagery.</p>
+        </div>
+
+        <a asp-controller="DroneImages"
+           asp-action="Upload"
+           class="btn-primary">
+            + Upload Image
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (TempData["BlobName"] != null)
+    {
+        <p>
+            Uploaded Blob:
+            @TempData["BlobName"]
+        </p>
+    }
+
+    <div class="panel">
+        <h3>Image Management</h3>
+
+        <p>
+            Upload drone images to Azure Blob Storage
+            for agricultural monitoring.
+        </p>
+
+        <a asp-controller="DroneImages"
+           asp-action="Upload"
+           class="btn-primary">
+            Upload Drone Image
+        </a>
+    </div>
+
+</div>

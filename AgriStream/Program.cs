@@ -34,7 +34,7 @@ builder.Services.AddSingleton(
 builder.Services.AddScoped<BlobStorageService>();
 builder.Services.AddScoped<TelemetryStorageService>();
 builder.Services.AddAuthorization();
-builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 
 
 var app = builder.Build();
@@ -49,8 +49,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

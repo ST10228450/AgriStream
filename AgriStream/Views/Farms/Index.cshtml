@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "My Farms";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>My Farms</h2>
+            <p>Manage your registered agricultural farms.</p>
+        </div>
+
+        <a asp-controller="Farms"
+           asp-action="Create"
+           class="btn btn-success">
+            + Add New Farm
+        </a>
+    </div>
+
+    <div class="card shadow-sm p-4">
+        <h5>Farm Management</h5>
+        <p>View and manage your farm information here.</p>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Upload Drone Images";
+}
+
+<div class="container-fluid">
+
+    <h2>Upload Drone Images</h2>
+
+    <p>Upload agricultural drone imagery to Azure Blob Storage.</p>
+
+    <div class="panel">
+
+        <form asp-controller="DroneImages"
+              asp-action="Upload"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Select Drone Image
+                </label>
+
+                <input type="file"
+                       name="image"
+                       class="form-control"
+                       accept=".jpg,.jpeg,.png,.webp"
+                       required />
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Upload Image
+            </button>
+
+        </form>
+
+        <a asp-controller="DroneImages"
+           asp-action="Index"
+           class="btn-secondary">
+            Back to Drone Images
+        </a>
+
+    </div>
+
+</div>

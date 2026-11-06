@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Register Farm";
+}
+
+<div class="container-fluid">
+    <h2>Register New Farm</h2>
+
+    <div class="card shadow-sm p-4">
+        <form asp-controller="Farms"
+              asp-action="Create"
+              method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Farm Name</label>
+                <input name="FarmName"
+                       class="form-control"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Location</label>
+                <input name="Location"
+                       class="form-control"
+                       required />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Save Farm
+            </button>
+        </form>
+    </div>
+</div>
